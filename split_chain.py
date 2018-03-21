@@ -1,9 +1,14 @@
 from Bio.PDB import *
 import sys
+import os
 
+if len(sys.argv)<2:
+	pdbfile = None
+else:
+	pdbfile = sys.argv[1]
 
 parser = PDBParser()
-structure = parser.get_structure("2f1d", "2f1d.pdb")
+structure = parser.get_structure(pdbfile[:-4], pdbfile)
 chains = list(structure[0].get_chains())
 
 def get_interactions(list_atoms1, list_atoms2):
@@ -17,11 +22,10 @@ def get_interactions(list_atoms1, list_atoms2):
 	interactions = []
 
 	for atom in list_atoms2:
-		interact = ns.search(atom.get_coord(), 5.0)
+		interact = ns.search(atom.get_coord(), 8.0)
 		interactions.extend([(str(atom.get_parent().get_parent().get_id())+ str(atom.get_parent().id[1]), str(x.get_parent().get_parent().get_id()) + str(x.get_parent().id[1])) for x in interact])
 	
 	return interactions
-
 
 between_chains = []
 
@@ -36,12 +40,12 @@ for index1, chain1 in enumerate(chains):
 		if len(provi) > 0:
 			between_chains.extend(provi)
 
-
+print(between_chains)
 set_dimers = set([x[0] + y[0] for x, y in between_chains])
 
 
 for dimer in set_dimers:
-	pdb_chain_file = 'chain_{}_{}.pdb'.format(dimer[0], dimer[1])
+	pdb_chain_file = './split_chains/chain_{}_{}.pdb'.format(dimer[0], dimer[1])
 	chain1 = list(filter(lambda x: x.id == dimer[0], chains))[0]
 	chain2 = list(filter(lambda x: x.id == dimer[1], chains))[0]
 	with open(pdb_chain_file, "w") as fp:
