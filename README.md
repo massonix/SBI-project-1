@@ -1,2 +1,5 @@
-# SBI-project
-SBI-Python project , Constructing macromolecular complexes. 
+#SBI-Python project  
+##Constructing macromolecular complexes. 
+
+*Ramon Massoni and Winona Oliveros*
+
