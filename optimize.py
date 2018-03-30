@@ -37,7 +37,7 @@ def Optimizemodel(pdb_file):
 
 	# Select all atoms:
 	atmsel = selection(mdl)
-	mpdf2 = atmsel.energy(edat=energy_data(dynamic_sphere=True))
+	mpdf2 = atmsel.energy()
 	# Generate the restraints:
 	#mdl.restraints.make(atmsel, restraint_type='improper', spline_on_site=False)
 	#mdl.restraints.make(atmsel, restraint_type='bond', spline_on_site=False)
@@ -67,7 +67,7 @@ def Optimizemodel(pdb_file):
 	cg.optimize(atmsel, max_iterations=20,
             actions=[actions.trace(5, trcfil)])
 
-	mpdf = atmsel.energy(edat=energy_data(dynamic_sphere=False))
+	mpdf = atmsel.energy()
 
 	print("The initial energy of " + code + " is " + str(mpdf1[0]))
 	print("The final energy of " + code + " is " + str(mpdf[0]))
@@ -77,7 +77,7 @@ def Optimizemodel(pdb_file):
 
 
 if __name__ == '__main__':
-	Optimizemodel('2f1d/chain_B_A.pdb')
+	Optimizemodel('complex1.pdb')
 
 
 
