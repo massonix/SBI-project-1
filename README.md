@@ -20,8 +20,8 @@
   - [Example 2 with optimization](#Example-2-with-optimization)
   - [Example 3](#Example-3)
 - [GUI - UNDER DEVELOPMENT](#gui-under-development)
-  - [Launching the app](#Launching the app)
-  - [Next steps](#Next steps)
+  - [Launching the app](#Launching-the-app)
+  - [Next steps](#Next-steps)
 - [Requirements](#Requirements)
 - [Limitations](#Limitations) 
   
