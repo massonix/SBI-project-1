@@ -40,6 +40,8 @@ Given a set of interacting pairs (prot-prot), reconstruct the complete macrocomp
 ## Installation
  You can install this package using pip with the next command: 
  
+ [Pypi web page](https://pypi.org/project/protcomp)
+ 
  ```bash
  pip install protcomp
  ```
