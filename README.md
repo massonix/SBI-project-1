@@ -38,19 +38,23 @@ A python package for macrocomplex construction given protein pairwise interactio
 Given a set of interacting pairs (prot-prot), reconstruct the complete macrocomplex and return a PDB file (or files) with the possible protein macrocomplexes build. 
 
 ## Installation
- You can install this package using pip with the next command: 
- 
- [Pypi web page](https://pypi.org/project/protcomp)
- 
- ```bash
- pip install protcomp
- ```
- Or you can just dowload this folder and run the next commands on the terminal:
+
+You can download our packageusing Git with the next command. We also recommend to create a directory named "complexes":
  
  ```bash
- tar -xvzf protcomp-XXXX.tar.gz
- sudo python setup.py install
+ git clone https://github.com/massonix/SBI-project.git
+ cd SBI-Project
+ mkdir complexes
  ```
+ The directory SBI-Project contains the following files and directories:
+ 
+ * README.md, README.pdf: the files containing the tutorial and information about our application.
+ * multicomplex.py: the command-line script.
+ * multifunctions.py: a module required by multicomplex.py that contains all the functions and classes.
+ * example1, example2 and example3: directories with several PDB files that serve as examples of input to the programme,
+   as we will see later.
+ * complexes: an empty folder where the created complexes will be saved.
+ * raw_pdbs: the raw PDB files from which we extracted the example pairwise interactions.
 
 ## General Information
 ### Input Files
@@ -201,6 +205,7 @@ We're trying to fix the problem and have the application working as soon as poss
 In order to run this program with all its functionalities the user must have several packages dowloaded and working:
 
 * [Python 3.6](https://www.python.org/downloads/)
+* GIT
 * Modules: 
   * [Modeller v.9.19](https://salilab.org/modeller/download_installation.html)
   * [Tkinter (for the GUI interface)](https://wiki.python.org/moin/TkInter)
